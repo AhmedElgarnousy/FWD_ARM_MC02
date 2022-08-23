@@ -1,37 +1,49 @@
 /**********************************************************************************
 *	FILE DESCRIPTION
 *--------------------------------------------------------------------------------*/
-/**			\file  fileName.c
+/**			\file  Led_Interface.h
 *		   \brief 
 *
 *		\details
 *
 *
 ***********************************************************************************/
-#ifndef INTCTRL_LCFG_H_
-#define INTCTRL_LCFG_H_
+#ifndef LED_INTERFACE_H_
+#define LED_INTERFACE_H_
 
 /***********************************************************************************
-*	INCLUDES
+*	                    API PROTOTYPES FUNCTIONS
 ***********************************************************************************/
-#include "Std_Types.h"
+
+//void Led_BlinkLed( OnTime , OffTime);
+/***********************************************************************************
+*	\Syntax				:Led_TurnOn(Dio_ChannelType ChannelId)
+*	\Description		:Turn on the LED
+*
+*	\Sync\Async			:Synchronous
+*	\Reentrancy			:Reentrant
+*	\Parameters  (in)	:Dio_ChannelType ChannelId
+*	\Parameters  (out)	:None
+*	\Return Value		:void
+***********************************************************************************/
+void Led_TurnOn(Dio_ChannelType ChannelId);
 
 /***********************************************************************************
-*	GLOBAL CONSTANT MACROS 
+*	\Syntax				:Led_TurnOff(Dio_ChannelType ChannelId)
+*	\Description		:Turn off the LED
+*
+*	\Sync\Async			:Synchronous
+*	\Reentrancy			:Reentrant
+*	\Parameters  (in)	:Dio_ChannelType ChannelId 
+*	\Parameters  (out)	:None
+*	\Return Value		:void
 ***********************************************************************************/
+void Led_TurnOff(Dio_ChannelType ChannelId);
 
-
-/***********************************************************************************
-*	GLOBAL FUNCTION MACROS
-***********************************************************************************/
-
-
-/***********************************************************************************
-*	GLOBAL DATA TYPES AND STRUCTURES
-***********************************************************************************/
 
 #endif
+
 /***********************************************************************************
-*	END OF FILE FileName.h
+*	END OF FILE Led_Interface.h
 ***********************************************************************************/
 
