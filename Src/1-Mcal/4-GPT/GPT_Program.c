@@ -20,8 +20,6 @@
 #include "Gpt_Config.h"
 #include "Gpt_Private.h"
 
-
-
     
 /***********************************************************************************
 *	END OF FILE Dio_Program.c

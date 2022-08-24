@@ -10,12 +10,11 @@
 
 
 
-
 int main()
 {
-	Led_TurnOn(Dio_Channel_F1);
-	 Led_TurnOn( Dio_Channel_F2);
-	 Led_TurnOn( Dio_Channel_F3);
+	 Led_TurnOn(Dio_Channel_F1);
+	 Led_TurnOn(Dio_Channel_F2);
+	 Led_TurnOn(Dio_Channel_F3);
 	while(1)
 	{
 		

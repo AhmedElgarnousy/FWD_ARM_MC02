@@ -13,9 +13,9 @@
 #define DIO_CONFIG_H_
 
 /***********************************************************************************
-*	GLOBAL DATA TYPES AND STRUCTURES
+*	                         THere is no Configuration
 ***********************************************************************************/
-/*THere is no Configuration*/
+
 
 
 

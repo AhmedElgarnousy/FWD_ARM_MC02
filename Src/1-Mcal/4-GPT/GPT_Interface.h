@@ -13,31 +13,44 @@
 
 
 /***********************************************************************************
-*	                    INCLUDES
-***********************************************************************************/
-#include "Std_Types.h"
-
-/***********************************************************************************
 *	                    API TYPES, GLOBAL DATA TYPES AND STRUCTURES
 ***********************************************************************************/
 
 typedef struct 
 {
     /*structure Implementation Specfic*/
+    Gpt_ChannelType ChannelId;
+    uint32 GptChannelTickFrequency;
+    uint32 GptChannelTickValueMax;
+
+    /*Channel Mode 
+        . GPT_CH_MODE_CONTINUOUS
+        . GPT_CH_MODE_ONESHOT
+        */
+    /*GptNotification : Ptr to call Back Function*/
     
 }Gpt_ConfigType;
 
-typedef struct 
+typedef enum 
 {
     /*Numeric  ID of a GPT Channel */
+    Timer1,
+    Timer2,
+    Timer3,
+    Timer4,
+    Timer5,
+    Timer6,
+    Timer7,
+    Timer8,
+    Timer9,
+    Timer10,
+    Timer11,
+    Timer12,
 
 }Gpt_ChannelType;
 
-typedef struct 
-{
-    /*Type for reading and setting the timer values (in number of ticks) */
-
-}Gpt_ValueType;
+/*Type for reading and setting the timer values (in number of ticks) */
+typdef uint32 Gpt_ValueType;
 
 
 /***********************************************************************************

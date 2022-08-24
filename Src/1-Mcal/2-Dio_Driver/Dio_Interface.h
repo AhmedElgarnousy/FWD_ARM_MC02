@@ -13,11 +13,6 @@
 
 
 /***********************************************************************************
-*	                    INCLUDES
-***********************************************************************************/
-#include "Std_Types.h"
-
-/***********************************************************************************
 *	                    GLOBAL DATA TYPES AND STRUCTURES
 ***********************************************************************************/
 
@@ -116,14 +111,13 @@ Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId);
 
 /***********************************************************************************
 *	\Syntax				:Dio_WriteChannel(Dio_ChannelType channelId  , Dio_LevelType Level)
-*	\Description		:Describe this service
+*	\Description		:used to write high or low on any pin.
 *
 *	\Sync\Async			:Synchronous
 *	\Reentrancy			:Reentrant
-*	\Parameters  (in)	:ParamterName Paramter Description
+*	\Parameters  (in)	:Dio_ChannelType channelId  , Dio_LevelType Level
 *	\Parameters  (out)	:None
-*	\Return Value		:Std_ReturnType  E_OK
-*										 E_NOK_OK
+*	\Return Value		:void
 ***********************************************************************************/
 void Dio_WriteChannel(Dio_ChannelType channelId  , Dio_LevelType Level);
 

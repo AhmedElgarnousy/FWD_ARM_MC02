@@ -7,18 +7,28 @@
 #include "SysTick_Interface.h"
 #include "Led_Interface.h"
 
+
+void Systick_Notification(void);
+
+
+
 /**********************************************
     MCU Driver
 **********************************************/
-    RCGCGPIO_REG.R5 = Std_High;     //Enable Clock for PortF 
-
+void Systick_Notification(void)
+{
+	Led_TurnOn(Dio_Channel_F1);
+}
 
 int main()
 {
-
+	SysTick_SetCallBack (Systick_Notification);
+	
 	while(1)
 	{
-		/*Remeber to check if u want to modify Clock in Startup codes*/
+		
 	}
 
 }
+
+
