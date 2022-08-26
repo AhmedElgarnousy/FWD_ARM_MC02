@@ -40,6 +40,18 @@ void Led_TurnOn(Dio_ChannelType ChannelId);
 ***********************************************************************************/
 void Led_TurnOff(Dio_ChannelType ChannelId);
 
+/***********************************************************************************
+*	\Syntax				:Led_ToggleChannel(Dio_ChannelType ChannelId)
+*	\Description		:Toggle the LED
+*
+*	\Sync\Async			:Synchronous
+*	\Reentrancy			:Reentrant
+*	\Parameters  (in)	:Dio_ChannelType ChannelId 
+*	\Parameters  (out)	:None
+*	\Return Value		:void
+***********************************************************************************/
+void Led_ToggleChannel(Dio_ChannelType ChannelId);
+
 
 #endif
 

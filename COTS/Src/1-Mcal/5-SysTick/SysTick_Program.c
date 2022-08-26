@@ -35,15 +35,28 @@ void SysTick_Init()
      SET_BIT(SYSHNDCTRL , 11);
 
     /*Enables SysTick to operate in a multi-shot way*/
-     SET_BIT(STCTRL , 0);   //Set_Bit_BB_Perip(STCTRL , 0);
+    SET_BIT(STCTRL , 0);   //Set_Bit_BB_Perip(STCTRL , 0);
 
-    /*An interrupt is generated to the NVIC when SysTick counts to 0.*/
-     SET_BIT(STCTRL , 1);
+    #if CLOCK == SYSTEM_CLOCK
+         SET_BIT(STCTRL , 2);         
+    #elif CLOCK == PIOSC_DIV_BY_4
+         CLR_BIT(STCTRL , 2); 
+    #else 
+    #error "Wrong CLOCK CONFIGURATION"
 
-     /*Enable the System clock */
-     SET_BIT(STCTRL , 2);
+    #endif
 
-     STRELOAD = 0x00FFFFFF;
+    #if INTERRUPT_GENERATION == ENABLED
+         SET_BIT(STCTRL , 1);         
+    #elif INTERRUPT_GENERATION == DISABLED
+         CLR_BIT(STCTRL , 1); 
+    #else 
+    #error "Wrong CLOCK CONFIGURATION"
+
+    #endif
+
+    // STRELOAD = 0x00FFFFFF;
+	    STRELOAD = 0xf;
    
 }
 void SysTick_SetCallBack( void(*Copy_pvCallBackFunc)(void) )

@@ -13,9 +13,22 @@
 #define SYSTICK_CONFIG_H_
 
 /***********************************************************************************
-*	GLOBAL DATA TYPES AND STRUCTURES
+*	                               CONFIGURATIONS
 ***********************************************************************************/
-/*THere is no Configuration*/
+
+/*
+    Options:
+            1-SYSTEM_CLOCK
+            2-PIOSC_DIV_BY_4
+*/
+#define CLOCK                              SYSTEM_CLOCK 
+
+/*
+    Options:
+            1-ENABLED (An interrupt is generated to the NVIC when SysTick counts to 0)
+            2-DISABLED
+*/
+#define INTERRUPT_GENERATION                       ENABLED 
 
 
 

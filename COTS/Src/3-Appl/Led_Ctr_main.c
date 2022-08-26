@@ -8,20 +8,16 @@
 #include "Led_Interface.h"
 
 
-void Systick_Notification(void);
-
-
-
 /**********************************************
     MCU Driver
 **********************************************/
-void Systick_Notification(void)
-{
-	Led_TurnOn(Dio_Channel_F1);
-}
 
+void Systick_Notification(void);
 int main()
 {
+	SysTick_Init();
+	Led_TurnOn(Dio_Channel_F2);
+
 	SysTick_SetCallBack (Systick_Notification);
 	
 	while(1)
@@ -29,6 +25,10 @@ int main()
 		
 	}
 
+}
+void Systick_Notification(void)
+{
+	Led_TurnOn(Dio_Channel_F1);
 }
 
 
