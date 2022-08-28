@@ -16,6 +16,11 @@
 *	                               CONFIGURATIONS
 ***********************************************************************************/
 
+
+//Value for 1 sec for clock 12MHz 
+#define  STRELOAD_VAL                    STRELOAD_VAL_1SEC_12MHZ
+
+
 /*
     Options:
             1-SYSTEM_CLOCK
@@ -29,7 +34,6 @@
             2-DISABLED
 */
 #define INTERRUPT_GENERATION                       ENABLED 
-
 
 
 #endif

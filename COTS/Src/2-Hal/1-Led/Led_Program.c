@@ -41,10 +41,11 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
  switch(PortId)
     {
         case Dio_Port_A: 
-			  status = GET_BIT(PORTA_REG.GPIODATA , Channel_No);
-	     Set_Bit_BB_Perip(PORTA_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R0 = Std_High;
-             Clear_Bit_BB_Perip(PORTA_REG.GPIOAFSEL , Channel_No);
+					 RCGCGPIO_REG.R0 = Std_High;
+				   Set_Bit_BB_Perip(PORTA_REG.GPIODIR , Channel_No); 
+           Clear_Bit_BB_Perip(PORTA_REG.GPIOAFSEL , Channel_No);
+			     status = GET_BIT(PORTA_REG.GPIODATA , Channel_No);
+	     
              Set_Bit_BB_Perip(PORTA_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTA_REG.GPIOAMSEL , Channel_No);
             if(status == 0)
@@ -57,10 +58,11 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
             }
             break;
         case Dio_Port_B:
+					RCGCGPIO_REG.R1 = Std_High;
 
           status = GET_BIT(PORTB_REG.GPIODATA , Channel_No);
 	     Set_Bit_BB_Perip(PORTB_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R1 = Std_High;
+             
              Clear_Bit_BB_Perip(PORTB_REG.GPIOAFSEL , Channel_No);
              Set_Bit_BB_Perip(PORTB_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTB_REG.GPIOAMSEL , Channel_No);
@@ -74,11 +76,12 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
             }
             break;
 
-        case Dio_Port_C:  
-         status = GET_BIT(PORTC_REG.GPIODATA , Channel_No);
-	     Set_Bit_BB_Perip(PORTC_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R2 = Std_High;
+        case Dio_Port_C: 
+						RCGCGPIO_REG.R2 = Std_High;
+				 Set_Bit_BB_Perip(PORTC_REG.GPIODIR , Channel_No); 
              Clear_Bit_BB_Perip(PORTC_REG.GPIOAFSEL , Channel_No);
+         status = GET_BIT(PORTC_REG.GPIODATA , Channel_No);
+	    
              Set_Bit_BB_Perip(PORTC_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTC_REG.GPIOAMSEL , Channel_No);
             if(status == 0)
@@ -91,11 +94,12 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
             }
             break;
         
-        case Dio_Port_D:  
+        case Dio_Port_D: 
+							RCGCGPIO_REG.R3 = Std_High;	
+Set_Bit_BB_Perip(PORTD_REG.GPIODIR , Channel_No);    
+             Clear_Bit_BB_Perip(PORTD_REG.GPIOAFSEL , Channel_No);				
               status = GET_BIT(PORTD_REG.GPIODATA , Channel_No);
-	     Set_Bit_BB_Perip(PORTD_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R3 = Std_High;
-             Clear_Bit_BB_Perip(PORTD_REG.GPIOAFSEL , Channel_No);
+	     
              Set_Bit_BB_Perip(PORTD_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTD_REG.GPIOAMSEL , Channel_No);
             if(status == 0)
@@ -108,10 +112,11 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
             }
             break;
         case Dio_Port_E: 
-              status = GET_BIT(PORTE_REG.GPIODATA , Channel_No);
-	     Set_Bit_BB_Perip(PORTE_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R4 = Std_High;
+					RCGCGPIO_REG.R4 = Std_High;
+				Set_Bit_BB_Perip(PORTE_REG.GPIODIR , Channel_No);             
              Clear_Bit_BB_Perip(PORTE_REG.GPIOAFSEL , Channel_No);
+              status = GET_BIT(PORTE_REG.GPIODATA , Channel_No);
+	     
              Set_Bit_BB_Perip(PORTE_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTE_REG.GPIOAMSEL , Channel_No);
             if(status == 0)
@@ -124,10 +129,11 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
             }
             break;
         case Dio_Port_F: 
-	        status = GET_BIT(PORTF_REG.GPIODATA , Channel_No);
-	     Set_Bit_BB_Perip(PORTF_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R5 = Std_High;
+					RCGCGPIO_REG.R5 = Std_High;
+				Set_Bit_BB_Perip(PORTF_REG.GPIODIR , Channel_No); 
              Clear_Bit_BB_Perip(PORTF_REG.GPIOAFSEL , Channel_No);
+	        status = GET_BIT(PORTF_REG.GPIODATA , Channel_No);
+	     
              Set_Bit_BB_Perip(PORTF_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTF_REG.GPIOAMSEL , Channel_No);
             if(status == 0)
@@ -139,8 +145,6 @@ void Led_ToggleChannel(Dio_ChannelType ChannelId)
                  Clear_Bit_BB_Perip(PORTF_REG.GPIODATA , Channel_No );
             }
             break;
-
-
 }	
 }
 /***********************************************************************************

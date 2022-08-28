@@ -10,7 +10,7 @@
 ***********************************************************************************/
 
 /***********************************************************************************
-*	INCLUDES
+*	                                   INCLUDES
 ***********************************************************************************/
 #include "Std_Types.h"
 #include "Bit_Math.h"
@@ -20,23 +20,23 @@
 #include "SysTick_Config.h"
 #include "SysTick_Private.h"
 
+#include"Dio_Interface.h"
+
+
+/*Global Pointer to function*/
 static void (*SysTick_PtrNotificationFunc)(void) = NULL;
 
-/*
-1. Program the value in the STRELOAD register.
-2. Clear the STCURRENT register by writing to it with any value.
-3. Configure the STCTRL register for the required operation
-*/
+/***********************************************************************************
+*	                    FUNCTIONS IMPLEMENTATION
+***********************************************************************************/
 void SysTick_Init()
 {
     /*enable FAULTMASK, PRIMASK, BASEPRI, NVIC/SCB , PERIP*/
 
-   /* A SysTick exception is active as SCB GATE */
-     SET_BIT(SYSHNDCTRL , 11);
-
-    /*Enables SysTick to operate in a multi-shot way*/
-    SET_BIT(STCTRL , 0);   //Set_Bit_BB_Perip(STCTRL , 0);
-
+      /* Program the value in the STRELOAD register.*/
+     STRELOAD = STRELOAD_VAL;  
+	  
+   /* Configure the STCTRL register for the required operation*/
     #if CLOCK == SYSTEM_CLOCK
          SET_BIT(STCTRL , 2);         
     #elif CLOCK == PIOSC_DIV_BY_4
@@ -54,29 +54,30 @@ void SysTick_Init()
     #error "Wrong CLOCK CONFIGURATION"
 
     #endif
-
-    // STRELOAD = 0x00FFFFFF;
-	    STRELOAD = 0xf;
-   
 }
+
+void SysTick_StartTimer()
+{
+    /*Enables the counter*/
+    SET_BIT(STCTRL , 0);   
+}
+
+void SysTick_StopTimer()
+{
+    /*Enables the counter*/
+    CLR_BIT(STCTRL , 0); 
+}
+
 void SysTick_SetCallBack( void(*Copy_pvCallBackFunc)(void) )
 {
+	/*Initialize the call back notification function globally*/
       SysTick_PtrNotificationFunc =  Copy_pvCallBackFunc;
 }
 	
-void SysTick_Handler(void)
+void SysTick_Handler()
 {
-	//static uint8 Conuter = 0;
-
-  //  if(Conuter == 5)
-   // {
-      SysTick_PtrNotificationFunc();
-   // }
-   // else
-  //  {
-   //   Conuter ++;
-   // }
-	
+	/*Invoke the call back notification*/
+    SysTick_PtrNotificationFunc();
 }
 /***********************************************************************************
 *	END OF FILE SysTick_Program.c

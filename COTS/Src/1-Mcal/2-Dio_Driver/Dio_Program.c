@@ -57,8 +57,8 @@ void Dio_WriteChannel(Dio_ChannelType channelId  , Dio_LevelType Level)
     switch(PortId)
     {
         case Dio_Port_A:  
+					RCGCGPIO_REG.R0 = Std_High;
              Set_Bit_BB_Perip(PORTA_REG.GPIODIR , Channel_No); 
-             RCGCGPIO_REG.R0 = Std_High;
              Clear_Bit_BB_Perip(PORTA_REG.GPIOAFSEL , Channel_No);
              Set_Bit_BB_Perip(PORTA_REG.GPIODEN , Channel_No);   
              Clear_Bit_BB_Perip(PORTA_REG.GPIOAMSEL , Channel_No);
