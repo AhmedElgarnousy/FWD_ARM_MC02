@@ -23,14 +23,6 @@
 *   Inetrrupt Sub Group Priority
 ***********************************************************************************/
 
-/*Interrupt Peripheral Gates
-*   FAULTMASK 
-*   PRIMASK
-*   BASEMASK
-*   NVIC/SCB
-*   PERIPHERAL
-*/
-
 
 /* enable the BASEMASK
 *Value Description
@@ -45,6 +37,7 @@
 //void __set_BASEPRI (uint32_t value);
 
 
+
 /*
 *Options:
 *        GROUP_PRIORITY_X_X_X  
@@ -56,7 +49,6 @@
 #define NVIC_APINT_INTERRUPT_PRIORITY_LEVELS       GROUP_PRIORITY_X_X_X
 
 /*Assign Group\Subgroup priority in NVIC_PRIx and SCB_SYSPRIx*/
-
 
 /*take the group and subgroup number for each interrupt*/
 
